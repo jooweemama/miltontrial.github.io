@@ -1,0 +1,179 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .trial-wrap { padding: 1.5rem 0; }
+  .banner { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .gavel { font-size: 28px; }
+  .banner-text h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .banner-text p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .verdict-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .verdict-card { border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 1rem 1.25rem; background: var(--color-background-primary); }
+  .verdict-card.prosecution { border-left: 3px solid #E24B4A; }
+  .verdict-card.defence { border-left: 3px solid #378ADD; }
+  .verdict-label { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 6px; }
+  .verdict-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .verdict-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.55; }
+  .section-head { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .evidence-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); padding: 0.85rem 1rem; }
+  .evidence-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; }
+  .tag-prosecution { background: #FCEBEB; color: #A32D2D; }
+  .tag-defence { background: #E6F1FB; color: #185FA5; }
+  .tag-neutral { background: #F1EFE8; color: #5F5E5A; }
+  .evidence-quote { font-size: 13px; font-style: italic; color: var(--color-text-primary); line-height: 1.55; margin-bottom: 4px; }
+  .evidence-note { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+  .witness-list { margin-bottom: 1.5rem; }
+  .witness { display: flex; align-items: flex-start; gap: 12px; padding: 0.85rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .witness:last-child { border-bottom: none; }
+  .witness-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; }
+  .av-blue { background: #E6F1FB; color: #185FA5; }
+  .av-red { background: #FCEBEB; color: #A32D2D; }
+  .av-amber { background: #FAEEDA; color: #854F0B; }
+  .av-green { background: #EAF3DE; color: #3B6D11; }
+  .witness-body { flex: 1; min-width: 0; }
+  .witness-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .witness-role { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .witness-task { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .q-block { margin-bottom: 1.25rem; }
+  .q-num { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .q-text { font-size: 14px; color: var(--color-text-primary); line-height: 1.6; }
+  .ref-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+  .ref-box a { color: var(--color-text-info); text-decoration: none; }
+  .gdoc-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); font-size: 14px; font-weight: 500; color: var(--color-text-primary); cursor: pointer; text-decoration: none; }
+  .gdoc-btn:hover { background: var(--color-background-secondary); }
+  .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+</style>
+
+<div class="trial-wrap">
+  <h2 class="sr-only">George Milton on Trial: an IGCSE discussion activity about whether his killing of Lennie was murder or mercy.</h2>
+
+  <div class="banner">
+    <div class="gavel">⚖️</div>
+    <div class="banner-text">
+      <h2>The People vs. George Milton</h2>
+      <p>Was the killing of Lennie Small an act of murder — or an act of mercy? You decide.</p>
+    </div>
+  </div>
+
+  <div class="verdict-row">
+    <div class="verdict-card prosecution">
+      <div class="verdict-label">Prosecution</div>
+      <div class="verdict-title">Murder in cold blood</div>
+      <div class="verdict-desc">George knowingly and deliberately ended Lennie's life. No court had ruled. No sentence had been passed. George appointed himself judge, jury, and executioner.</div>
+    </div>
+    <div class="verdict-card defence">
+      <div class="verdict-label">Defence</div>
+      <div class="verdict-title">A mercy killing</div>
+      <div class="verdict-desc">George acted from loyalty and love to spare Lennie the terror and humiliation of a public lynching. His hand shook — this was not cold. It was the hardest thing he ever did.</div>
+    </div>
+  </div>
+
+  <div class="section-head">Exhibit A — Key evidence from the text</div>
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <span class="evidence-tag tag-prosecution">Prosecution</span>
+      <div class="evidence-quote">"George raised the gun and his hand shook… The hand shook violently."</div>
+      <div class="evidence-note">George hesitates — does this suggest doubt, or guilt?</div>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-tag tag-defence">Defence</span>
+      <div class="evidence-quote">"No, Lennie. I ain't mad. I never been mad, an' I ain't now. That's a thing I want ya to know."</div>
+      <div class="evidence-note">George's last words to Lennie are comfort and truth — not anger.</div>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-tag tag-defence">Defence</span>
+      <div class="evidence-quote">"Look across the river, Lennie, an' I'll tell you so you can almost see it."</div>
+      <div class="evidence-note">George lets Lennie die in the dream — with hope, not fear.</div>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-tag tag-prosecution">Prosecution</span>
+      <div class="evidence-quote">"He ain't gonna let 'em hurt Lennie."</div>
+      <div class="evidence-note">But is killing Lennie yourself the same as protecting him?</div>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-tag tag-neutral">Parallel — Candy's dog</span>
+      <div class="evidence-quote">"I oughtta of shot that dog myself, George. I shouldn't oughtta of let no stranger shoot my dog."</div>
+      <div class="evidence-note">Candy's regret shapes how we read George's choice — does it justify it?</div>
+    </div>
+    <div class="evidence-card">
+      <span class="evidence-tag tag-neutral">Context</span>
+      <div class="evidence-quote">"Lennie jarred, and then settled slowly forward to the sand, and lay without quivering."</div>
+      <div class="evidence-note">Steinbeck's prose is quiet, almost peaceful — what does this suggest about his judgement?</div>
+    </div>
+  </div>
+
+  <div class="section-head">The witnesses — your roles</div>
+  <div class="witness-list">
+    <div class="witness">
+      <div class="witness-avatar av-red">GS</div>
+      <div class="witness-body">
+        <div class="witness-name">Prosecution </div>
+      
+        <div class="witness-task">Argue that no individual has the right to take another's life, regardless of intent. Focus on the fact that Lennie could not consent, and that alternative options existed.</div>
+      </div>
+    </div>
+    <div class="witness">
+      <div class="witness-avatar av-blue">CF</div>
+      <div class="witness-body">
+        <div class="witness-name">Defence</div>
+        <div class="witness-task">Use Candy's regret about his dog as your anchor. Argue that George's act mirrors the most compassionate impulse in the novel — to choose how your loved one dies.</div>
+      </div>
+    </div>
+    <div class="witness">
+      <div class="witness-avatar av-amber">JD</div>
+      <div class="witness-body">
+        <div class="witness-name">The Judge</div>
+        <div class="witness-role">Analysis</div>
+        <div class="witness-task">Keep order, ask follow-up questions of each side, and deliver a final summary of the strongest arguments heard. You do not have to pick a side — but you must weigh the evidence.</div>
+      </div>
+    </div>
+    <div class="witness">
+      <div class="witness-avatar av-green">JY</div>
+      <div class="witness-body">
+        <div class="witness-name">The Jury</div>
+        <div class="witness-role">You!</div>
+        <div class="witness-task">Listen, annotate the evidence, and deliver a written verdict with at least two textual references after the debate.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">Discussion questions — for your written response</div>
+  <div class="q-block">
+    <div class="q-num">Question 1</div>
+    <div class="q-text">Is George's act best described as murder or mercy killing? How does the parallel with Candy's dog shape your reading of his decision?</div>
+  </div>
+  <div class="q-block">
+    <div class="q-num">Question 2</div>
+    <div class="q-text">Does Steinbeck present George's action as heroic, tragic, or morally ambiguous? How does the prose style at the moment of the shooting support your view?</div>
+  </div>
+  <div class="q-block">
+    <div class="q-num">Question 3</div>
+    <div class="q-text">How does the social context of the Great Depression and the powerlessness of migrant workers bear on the question of George's choices?</div>
+  </div>
+
+  <div class="section-head" style="margin-top:1.5rem;">Academic source</div>
+  <div class="ref-box">
+    Shen, T.-X., &amp; Wang, Y.-H. (2022). Mercy killing or murder: A moral dilemma regarding the death of Lennie in <em>Of Mice and Men</em>. <em>International Journal of Social Sciences and Artistic Innovations, 2</em>(4), 34–40. <a href="https://doi.org/10.35745/ijssai2022v02.04.0004">https://doi.org/10.35745/ijssai2022v02.04.0004</a>
+  </div>
+
+  <div class="section-head">Complete your written verdict</div>
+  <div class="btn-row">
+    <a class="gdoc-btn" href="https://docs.google.com/document/create?title=The+People+vs+George+Milton+%E2%80%94+My+Verdict" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Open Google Doc for my verdict ↗
+    </a>
+  </div>
+</div>
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Browser</title>
+</head>
